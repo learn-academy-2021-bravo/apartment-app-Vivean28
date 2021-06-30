@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
+
 class Header extends Component {
    
     render() { 
@@ -9,9 +11,15 @@ class Header extends Component {
         } = this.props
         return ( 
             <div>
-            <h1>Header here</h1>
-            <a href={this.props.sign_in_route}>Sign In</a>
-            <a href={this.props.sign_out_route}>Sign Out</a>
+            <h1>Apartment App </h1>
+           { !logged_in && <a href={this.props.sign_in_route}>Sign In</a>}
+             <br/>
+           { logged_in && <a  href={this.props.sign_out_route}>Sign Out</a>}
+             <br/>
+           <NavLink to ="/">Home</NavLink>
+             <br/>
+           <NavLink to ="/apartmentindex">Apartment</NavLink>
+           
             </div>
          );
     }
